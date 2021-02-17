@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #countrys{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            text-align: center;
+        }
+        #country{
+            border: 1px solid blueviolet;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="countrys">
+
+    </section>
+    <script>
+        fetch('https://restcountries.eu/rest/v2/all')
+        .then(response => response.json())
+        .then(data => getInfo(data))
+
+        function getInfo(info){
+            for (let i = 0; i < info.length; i++) {
+                const element = info[i];  
+                console.log(element)
+                display(element)           
+            }
+        }
+
+        function display(value){
+            const countrys = document.getElementById("countrys")
+            const country = document.createElement("div");
+            country.id = "country";
+            countrys.appendChild(country)
+            const name = document.createElement("h1");
+            const capital = document.createElement("p");
+            const details = document.createElement("button");
+
+            name.innerHTML = value.name;
+            capital.innerHTML = value.capital;
+            details.innerHTML = value.flag;
+            country.appendChild(name);
+            country.appendChild(capital);
+            country.appendChild(details);
+        }
+    </script>
+</body>
+</html>

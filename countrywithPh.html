@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Tour</title>
+    <style>
+        #countries{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+        .country{
+            border: 1px solid blueviolet;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        .flag{
+            width: 40%;
+            height: 200px;
+        }
+        #singleCountry{
+            text-align: center;
+        }
+        #single-country-section{
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            place-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section id="single-country-section">
+        <div id="singleCountry">
+
+        </div>
+    </section>
+    <section id="section">
+        <div id="countries">
+
+        </div>
+    </section>
+
+    <!-- <script>
+        fetch('https://restcountries.eu/rest/v2/all')
+        .then(response => response.json())
+        .then(data => displayCountries(data));
+
+        // const displayCountries = countries => {
+        //     const countriesDiv = document.getElementById("countries");
+
+        //     countries.forEach(country => {
+        //         const countryDiv = document.createElement("div")
+        //         countryDiv.className = "country";
+
+        //         const countryInfo = `
+        //             <h2>${country.name}</h2>
+        //             <p>${country.capital}</p>
+        //             <button onclick="countryDetails(${country.name})">Details</button>
+        //         `;
+               
+        //         countryDiv.innerHTML = countryInfo;
+        //         countriesDiv.appendChild(countryDiv);
+        //     });
+        // }
+
+        const displayCountries = countries => {
+            const countriesDiv = document.getElementById("countries");
+
+            for (let i = 0; i < countries.length; i++) {
+                const country = countries[i];
+                const countryDiv = document.createElement("div")
+                countryDiv.className = "country";
+
+                const countryInfo = `
+                    <h2>${country.name}</h2>
+                    <p>${country.capital}</p>
+                    <button onclick="countryDetails(${country.name})">Details</button>
+                `;
+               
+                countryDiv.innerHTML = countryInfo;
+                countriesDiv.appendChild(countryDiv);
+                
+                
+            }
+        }
+
+        function countryDetails(name){
+            console.log(name);
+        }
+        
+        
+    </script> -->
+<script src="app.js"></script>
+</body>
+</html>
